@@ -47,8 +47,11 @@ reveals.forEach(el=>observer.observe(el));
 // Gallery lightbox logic (simple, robust)
 document.addEventListener('DOMContentLoaded', function() {
     const galleryLinks = document.querySelectorAll('.gallery-item');
+    const videoDescription = document.getElementById('videoDescription');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxVideo = document.getElementById('lightboxVideo');
+    const lightboxCaption = document.getElementById('lightboxCaption');
     const lightboxClose = document.getElementById('lightboxClose');
 
     if (!galleryLinks.length || !lightbox || !lightboxImg || !lightboxClose) return;
@@ -56,10 +59,55 @@ document.addEventListener('DOMContentLoaded', function() {
     galleryLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            console.log('Gallery image clicked', link);
             const img = link.querySelector('img');
-            lightboxImg.src = img.src;
-            lightboxImg.alt = img.alt;
+            const video = link.querySelector('video');
+
+            if (img) {
+                lightboxImg.style.display = 'block';
+                if (lightboxVideo) {
+                    lightboxVideo.style.display = 'none';
+                    lightboxVideo.pause();
+                    lightboxVideo.removeAttribute('src');
+                    lightboxVideo.load();
+                }
+                if (lightboxCaption) {
+                    const descriptionId = link.getAttribute('data-description');
+                    if (descriptionId) {
+                        const descriptionElem = document.getElementById(descriptionId);
+                        if (descriptionElem) {
+                            lightboxCaption.innerHTML = descriptionElem.innerHTML;
+                            lightboxCaption.style.display = 'block';
+                        } else {
+                            lightboxCaption.style.display = 'none';
+                            lightboxCaption.innerHTML = '';
+                        }
+                    } else {
+                        lightboxCaption.style.display = 'none';
+                        lightboxCaption.innerHTML = '';
+                    }
+                }
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+            }
+
+            if (video && lightboxVideo) {
+                lightboxImg.style.display = 'none';
+                lightboxImg.src = '';
+                lightboxVideo.style.display = 'block';
+                lightboxVideo.src = link.getAttribute('href') || '';
+                lightboxVideo.load();
+                lightboxVideo.play().catch(() => {});
+                if (lightboxCaption) {
+                    if (videoDescription) {
+                        lightboxCaption.innerHTML = videoDescription.innerHTML;
+                        lightboxCaption.style.display = 'block';
+                    } else {
+                        lightboxCaption.style.display = 'none';
+                        lightboxCaption.innerHTML = '';
+                    }
+                }
+            }
+
             lightbox.classList.add('open');
         });
     });
@@ -67,6 +115,17 @@ document.addEventListener('DOMContentLoaded', function() {
     function closeLightbox() {
         lightbox.classList.remove('open');
         lightboxImg.src = '';
+        lightboxImg.style.display = 'block';
+        if (lightboxVideo) {
+            lightboxVideo.pause();
+            lightboxVideo.removeAttribute('src');
+            lightboxVideo.load();
+            lightboxVideo.style.display = 'none';
+        }
+        if (lightboxCaption) {
+            lightboxCaption.style.display = 'none';
+            lightboxCaption.innerHTML = '';
+        }
     }
 
     lightboxClose.addEventListener('click', closeLightbox);
