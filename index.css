@@ -501,6 +501,27 @@ main{
     color:#666;
 }
 
+.about-intro{
+    display:flex;
+    align-items:flex-start;
+    gap:30px;
+    margin-top:14px;
+}
+
+.about-profile-image{
+    width:clamp(200px, 28vw, 300px);
+    aspect-ratio:3/4;
+    object-fit:cover;
+    border-radius:18px;
+    box-shadow:0 14px 34px rgba(31,42,58,0.18);
+    border:1px solid var(--accent2);
+    flex-shrink:0;
+}
+
+.about-intro p:first-child{
+    margin-top:0;
+}
+
 /* ---------------- reveal animation ---------------- */
 
 @keyframes slideInFromLeft{
@@ -605,5 +626,15 @@ main{
 
     .hero h2{
         font-size:34px;
+    }
+
+    .about-intro{
+        flex-direction:column;
+        gap:18px;
+    }
+
+    .about-profile-image{
+        width:min(100%, 340px);
+        margin:0 auto;
     }
 }
