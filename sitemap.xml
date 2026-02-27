@@ -3,28 +3,35 @@
 
   <url>
     <loc>https://anatomiskhovbeskaering.dk/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://anatomiskhovbeskaering.dk/kontakt</loc>
-    <lastmod>2026-02-23</lastmod>
+    <loc>https://anatomiskhovbeskaering.dk/priser.html</loc>
+    <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://anatomiskhovbeskaering.dk/om_os</loc>
-    <lastmod>2026-02-23</lastmod>
+    <loc>https://anatomiskhovbeskaering.dk/kontakt.html</loc>
+    <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://anatomiskhovbeskaering.dk/galleri</loc>
-    <lastmod>2026-02-23</lastmod>
+    <loc>https://anatomiskhovbeskaering.dk/om_os.html</loc>
+    <lastmod>2026-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://anatomiskhovbeskaering.dk/galleri.html</loc>
+    <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
