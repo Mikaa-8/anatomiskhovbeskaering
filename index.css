@@ -501,6 +501,10 @@ main{
     color:#666;
 }
 
+.terms-block{
+    margin-top:64px;
+}
+
 .about-intro{
     display:flex;
     align-items:flex-start;
