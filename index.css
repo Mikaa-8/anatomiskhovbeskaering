@@ -25,6 +25,7 @@
     text-shadow: 0 2px 8px rgba(0,0,0,0.10);
     line-height: 1.1;
     display: inline-block;
+    margin-left: 5px;
 }
 .lightbox-overlay.open {
     display: flex !important;
@@ -192,9 +193,14 @@ a{
 
 .logo-wrap img{
     width:160px;
+    height:160px;
     border-radius:50%;
     background:white;
     padding:4px;
+    object-fit:cover;
+    object-position:center 45%;
+    transform:scale(1.12);
+    transform-origin:center center;
 }
 
 .desktop-nav{
@@ -343,7 +349,7 @@ main{
 }
 
 .section{
-    padding:90px 20px;
+    padding:90px 10px;
 }
 
 .section.light{background:white;}
@@ -352,6 +358,10 @@ main{
 .section-inner{
     max-width:900px;
     margin:auto;
+}
+
+.compact-gap{
+    padding-bottom: 0px;
 }
 
 /* ---------------- gallery ---------------- */
@@ -610,14 +620,47 @@ main{
     text-align:center;
     padding:40px 15px;
     font-size:14px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+}
+
+.footer-logo{
+    width:min(100%, 720px);
+    display:block;
+    margin:32px auto 0;
+    height:auto;
+    border-radius:12px;
+    background:white;
+    padding:0px;
+}
+
+.site-footer .footer-logo{
+    display:none;
+}
+
+.kontakt-logo{
+    width:min(100%, 1020px);
+    display:block;
+    margin:0 auto 24px;
+    border-radius:16px;
+    background:white;
 }
 
 /* ---------------- responsive ---------------- */
 
 @media(max-width:900px){
 
+    .site-footer .footer-logo{
+        width:90%;
+        min-width:auto;
+    }
+
     .logo-wrap img{
-        width:96px;
+        width:120px;
+        height:120px;
     }
 
     .desktop-nav{
