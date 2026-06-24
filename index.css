@@ -353,7 +353,7 @@ main{
 }
 
 .section.light{background:white;}
-.section.beige{background:#efece6;}
+.section.beige{background:#efece6;padding-top:10px;}
 
 .section-inner{
     max-width:900px;
@@ -364,7 +364,18 @@ main{
     padding-bottom: 0px;
 }
 
-/* ---------------- gallery ---------------- */
+.section h2{
+    font-size:36px;
+}
+
+.section h3{
+    font-size:26px;
+    margin-top:40px;
+}
+
+.section.beige h3:first-of-type{
+    margin-top:0;
+}
 .gallery{
     display:grid;
     grid-template-columns:repeat(4,1fr);
@@ -495,6 +506,10 @@ main{
 .section h3{
     font-size:26px;
     margin-top:40px;
+}
+
+.section.beige h3:first-of-type{
+    margin-top:0;
 }
 
 .section ul{
